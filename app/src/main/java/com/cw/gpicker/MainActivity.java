@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openPicker() {
-        takePhotoProxy.setCropNeed(false);
+        takePhotoProxy.setCropNeed(true);
         takePhotoProxy.setPickCondition(20971520L, 2, select, "image/jpeg", "image/gif"); //20 MB
         takePhotoProxy.pickPhotoByPicker(this);
         takePhotoProxy.setOnTakePhotoListener(new TakePhotoUtils.OnTakePhotoListener() {
