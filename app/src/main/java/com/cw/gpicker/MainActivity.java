@@ -9,6 +9,11 @@ import com.cw.gpicker.permission.PermissionUtil;
 import com.cw.gpicker.permission.ResultCallBack;
 import com.cw.gpicker.takephoto.TakePhotoProxy;
 import com.cw.gpicker.takephoto.TakePhotoUtils;
+import com.cw.picker.PickerConfig;
+import com.cw.picker.data.DataCallback;
+import com.cw.picker.data.VideoLoader;
+import com.cw.picker.entity.Folder;
+import com.cw.picker.entity.Media;
 
 import java.util.ArrayList;
 
@@ -23,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getLoaderManager().initLoader(PickerConfig.PICKER_VIDEO, null, new VideoLoader(this, null, new DataCallback() {
+            @Override
+            public void onData(ArrayList<Folder> list) {
+                for (Folder folder : list) {
+                    Log.d("folder", folder.name);
+                    for (Media media : folder.getMedias()) {
+                        Log.d("media", media.path + "---" + media.duration);
+                    }
+                }
+            }
+        }));
 
         findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
             @Override

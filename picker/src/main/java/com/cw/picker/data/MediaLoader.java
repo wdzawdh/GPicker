@@ -26,7 +26,8 @@ public class MediaLoader extends LoaderM implements LoaderManager.LoaderCallback
             MediaStore.Files.FileColumns.MEDIA_TYPE,
             MediaStore.Files.FileColumns.SIZE,
             MediaStore.Files.FileColumns._ID,
-            MediaStore.Files.FileColumns.PARENT};
+            MediaStore.Files.FileColumns.PARENT,
+            MediaStore.Audio.AudioColumns.DURATION};
 
     private Context mContext;
     private String[] mMineTypes;
@@ -76,10 +77,11 @@ public class MediaLoader extends LoaderM implements LoaderManager.LoaderCallback
             int mediaType = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MEDIA_TYPE));
             long size = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.SIZE));
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns._ID));
+            int duration = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DURATION));
 
             if (size < 1) continue;
             String dirName = getParent(path);
-            Media media = new Media(path, name, dateTime, mediaType, size, id, dirName);
+            Media media = new Media(path, name, dateTime, mediaType, size, duration, id, dirName);
             allFolder.addMedias(media);
             if (mediaType == 3) { //3 视频
                 allVideoDir.addMedias(media);

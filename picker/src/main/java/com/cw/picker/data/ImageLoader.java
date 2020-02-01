@@ -74,7 +74,7 @@ public class ImageLoader extends LoaderM implements LoaderManager.LoaderCallback
 
             if (size < 1) continue;
             String dirName = getParent(path);
-            Media media = new Media(path, name, dateTime, mediaType, size, id, dirName);
+            Media media = new Media(path, name, dateTime, mediaType, size, 0, id, dirName);
             allFolder.addMedias(media);
 
             int index = hasDir(folders, dirName);
