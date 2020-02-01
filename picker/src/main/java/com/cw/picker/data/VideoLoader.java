@@ -26,7 +26,8 @@ public class VideoLoader extends LoaderM implements LoaderManager.LoaderCallback
             MediaStore.Files.FileColumns.MEDIA_TYPE,
             MediaStore.Files.FileColumns.SIZE,
             MediaStore.Files.FileColumns._ID,
-            MediaStore.Files.FileColumns.PARENT};
+            MediaStore.Files.FileColumns.PARENT,
+            MediaStore.Audio.AudioColumns.DURATION,};
 
     private Context mContext;
     private String[] mMineTypes;

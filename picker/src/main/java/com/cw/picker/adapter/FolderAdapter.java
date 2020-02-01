@@ -2,7 +2,6 @@ package com.cw.picker.adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,8 @@ import com.cw.picker.entity.Folder;
 import com.cw.picker.entity.Media;
 
 import java.util.ArrayList;
+
+import androidx.core.content.ContextCompat;
 
 
 public class FolderAdapter extends BaseAdapter {

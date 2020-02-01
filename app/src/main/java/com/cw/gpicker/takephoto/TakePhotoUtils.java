@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
 
 import com.cw.gpicker.R;
@@ -23,6 +22,8 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.app.ActivityCompat;
 
 /**
  * 调用系统拍照、图库、裁剪

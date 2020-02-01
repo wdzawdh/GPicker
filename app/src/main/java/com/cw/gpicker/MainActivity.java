@@ -2,7 +2,6 @@ package com.cw.gpicker;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -12,6 +11,8 @@ import com.cw.gpicker.takephoto.TakePhotoProxy;
 import com.cw.gpicker.takephoto.TakePhotoUtils;
 
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
