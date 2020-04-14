@@ -22,7 +22,7 @@ public class VideoLoader extends LoaderM implements LoaderManager.LoaderCallback
             MediaStore.Files.FileColumns.DATA,
             MediaStore.Files.FileColumns.MIME_TYPE,
             MediaStore.Files.FileColumns.DISPLAY_NAME,
-            MediaStore.Files.FileColumns.DATE_ADDED,
+            MediaStore.Files.FileColumns.DATE_MODIFIED,
             MediaStore.Files.FileColumns.MEDIA_TYPE,
             MediaStore.Files.FileColumns.SIZE,
             MediaStore.Files.FileColumns._ID,
@@ -52,7 +52,7 @@ public class VideoLoader extends LoaderM implements LoaderManager.LoaderCallback
                 MEDIA_PROJECTION,
                 selection,
                 null, // Selection args (none).
-                MediaStore.Files.FileColumns.DATE_ADDED + " DESC" // Sort order.
+                MediaStore.Files.FileColumns.DATE_MODIFIED + " DESC" // Sort order.
         );
     }
 
@@ -68,7 +68,7 @@ public class VideoLoader extends LoaderM implements LoaderManager.LoaderCallback
         while (cursor.moveToNext()) {
             String path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATA));
             String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DISPLAY_NAME));
-            long dateTime = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATE_ADDED));
+            long dateTime = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATE_MODIFIED));
             int mediaType = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MEDIA_TYPE)); // 3 视频
             long size = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.SIZE));
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns._ID));

@@ -22,7 +22,7 @@ public class ImageLoader extends LoaderM implements LoaderManager.LoaderCallback
             MediaStore.Images.Media.DATA,
             MediaStore.Files.FileColumns.MIME_TYPE,
             MediaStore.Images.Media.DISPLAY_NAME,
-            MediaStore.Images.Media.DATE_ADDED,
+            MediaStore.Images.Media.DATE_MODIFIED,
             MediaStore.Images.Media.MIME_TYPE,
             MediaStore.Images.Media.SIZE,
             MediaStore.Images.Media._ID};
@@ -51,7 +51,7 @@ public class ImageLoader extends LoaderM implements LoaderManager.LoaderCallback
                 IMAGE_PROJECTION,
                 selection,
                 null, // Selection args (none).
-                MediaStore.Images.Media.DATE_ADDED + " DESC" // Sort order.
+                MediaStore.Images.Media.DATE_MODIFIED + " DESC" // Sort order.
         );
     }
 
@@ -67,7 +67,7 @@ public class ImageLoader extends LoaderM implements LoaderManager.LoaderCallback
         while (cursor.moveToNext()) {
             String path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
             String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME));
-            long dateTime = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_ADDED));
+            long dateTime = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_MODIFIED));
             int mediaType = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.MIME_TYPE)); // 0 图片
             long size = cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.SIZE));
             int id = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID));
